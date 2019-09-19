@@ -1,0 +1,19 @@
+service: test-client-services
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-plugin-include-dependencies
+  - serverless-offline
+
+functions:
+  service1:
+    handler: handler.entry
+    events:
+      - http:
+          path: /service1/
+          method: ANY

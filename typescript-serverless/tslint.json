@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json.schemastore.org/tslint",
+  "linterOptions": {
+    "exclude": ["**/*.(spec|test).ts", "ci/", "typings", "docs", "models"]
+  },
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "prettier": {
+      "options": [true],
+      "severity": "warning"
+    },
+    "interface-name": [true, "never-prefix"],
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "only-arrow-functions": false,
+    "prefer-const": false,
+    "variable-name": [
+      true,
+      "allow-leading-underscore",
+      "check-format",
+      "allow-snake-case",
+      "allow-pascal-case",
+      "ban-keywords"
+    ],
+    "no-conditional-assignment": false,
+    "curly": false,
+    "no-empty": false,
+    "no-namespace": false,
+    "no-string-literal": false,
+    "no-boolean-literal-compare": false,
+    "no-redundant-jsdoc": true,
+    "max-classes-per-file": false,
+    "member-ordering": false,
+    "triple-equals": [true, "allow-null-check", "allow-undefined-check"],
+    "no-empty-interface": false,
+    "no-shadowed-variable": false,
+    "no-consecutive-blank-lines": [true, 2],
+    "trailing-comma": [false],
+    "no-console": false,
+    "no-var-requires": false
+  }
+}

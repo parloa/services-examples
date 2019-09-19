@@ -1,0 +1,36 @@
+{
+  "name": "service-generator",
+  "version": "0.1.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jest -c jest.config.js --env=node",
+    "tunnel": "ngrok http 8080 --region eu",
+    "serve": "ts-node express.ts"
+  },
+  "author": "Future of Voice (contact@futureofvoice.com)",
+  "license": "unlicensed",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.13",
+    "@types/jest": "^23.3.7",
+    "@types/nodemailer": "^4.6.5",
+    "@types/node": "^12.7.5",
+    "jest": "^24.9.0",
+    "localtunnel": "^2.0.0",
+    "prettier": "^1.18.2",
+    "serverless": "^1.52.0",
+    "serverless-offline": "^5.11.0",
+    "serverless-plugin-include-dependencies": "^3.2.1",
+    "serverless-plugin-typescript": "^1.1.9",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "aws-lambda": "^0.1.2",
+    "lodash": "^4.17.15",
+    "express": "^4.17.1"
+  }
+}
