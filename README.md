@@ -10,6 +10,7 @@
 In this repository can you find some development examples for Parloa Services.
 
 Here is a list of the currently provided examples:
+
 | Language | Description |
 |--|--|
 | typescript | Implementation in [typescript](https://www.typescriptlang.org/) with the help of [nodejs](https://nodejs.org/en/) and [serverless](https://serverless.com/) for the deployment |
