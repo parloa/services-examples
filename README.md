@@ -3,7 +3,6 @@
 ## Important Links ⚠️
 
  - [Link to Parloa Website](https://www.parloa.com)
- - [Parloa Documentation](https://d11n.parloa.com)
  - [Contact to the Parloa Team](https://www.parloa.com/imprint/)
 
 ## What is inside this repository? 🤔
