@@ -20,7 +20,10 @@
     "baseUrl": "src",
     "paths": {
       "controller/*": ["controller/*"]
-    }
+    },
+    "plugins": [
+      { "transform": "ts-optchain/transform" },
+  ]
   },
   "exclude": [
     "dist",
@@ -37,5 +40,6 @@
   "compileOnSave": true,
   "typeAcquisition": {
     "enable": true
-  }
+  },
+  
 }

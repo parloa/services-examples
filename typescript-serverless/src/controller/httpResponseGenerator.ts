@@ -1,5 +1,5 @@
 import { APIGatewayProxyResult } from "aws-lambda";
-import { ExternalPlaceholderResponse } from "./service-interfaces";
+import { GenericServiceResponse } from "./service-interfaces";
 
 export class HttpResponseGenerator {
   public res: APIGatewayProxyResult = { statusCode: 200, body: null };

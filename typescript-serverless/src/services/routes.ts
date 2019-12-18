@@ -1,5 +1,7 @@
-import { Service1 } from "./service1/index";
+import { CheckAvailability } from "./checkAvailability";
+import { Mirror } from "./mirror";
 
 export const routes = {
-  Service1
+  Mirror,
+  CheckAvailability
 };

@@ -1,19 +1,43 @@
-service: test-client-services
+service: parloa-service-boilerplate
 
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
+  versionFunctions: true
+  stage: ${env:SERVERLESS_STAGE, 'dev'}
+  region: ${env:AWS_DEFAULT_REGION, 'eu-central-1'}
+  memorySize: 256
 
 plugins:
   - serverless-plugin-typescript
-  - serverless-plugin-include-dependencies
   - serverless-offline
+  - serverless-plugin-include-dependencies
+  - serverless-add-api-key
+  - serverless-prune-plugin
+  - serverless-plugin-warmup
+
+custom:
+  apiKeys:
+    - name: parloa-service-boilerplate
+      value: your-api-key-that-is-at-least-20-characters-long
+  prune:
+    automatic: true
+    number: 3
+  warmup:
+    enabled: prod
 
 functions:
-  service1:
+  mirror:
     handler: handler.entry
     events:
       - http:
-          path: /service1/
+          path: /mirror/
           method: ANY
+          private: true
+  checkAvailability:
+    handler: handler.entry
+    events:
+      - http:
+          path: /checkavailability/
+          method: ANY
+          private: true

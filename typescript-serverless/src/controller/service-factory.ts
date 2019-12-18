@@ -1,8 +1,5 @@
 import { routes } from "../services/routes";
-import {
-  ExternalPlaceholderRequest,
-  ServiceWorkflow
-} from "controller/service-interfaces";
+import { ServiceWorkflow } from "controller/service-interfaces";
 
 type Constructor<T> = new (...args: any[]) => T;
 
@@ -22,7 +19,6 @@ export class ServiceFactory {
   }
 
   public getService(): ServiceWorkflow {
-    // public getService(): Constructor<ServiceWorkflow> {
     return new this.routes[this.serviceName]();
   }
 }

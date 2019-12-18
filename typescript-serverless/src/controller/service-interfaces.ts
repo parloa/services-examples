@@ -6,14 +6,9 @@
 
 export interface ServiceWorkflow {
   run(
-    request: ExternalPlaceholderRequest<any>
-  ): Promise<ExternalPlaceholderResponse<any, any>>;
+    request: GenericServiceRequest<any>
+  ): Promise<GenericServiceResponse<any, any>>;
 }
-
-/**
- * Object that is send to the external api.
- */
-export interface ExternalAPIRequest {}
 
 /**
  * Object that is received from the external api.
@@ -34,16 +29,18 @@ export interface ExternalAPIResponse {
  * is send by an external action to a remote web hook which implements
  * the external placeholder filler action.
  */
-export interface ExternalPlaceholderRequest<T> extends ExternalAPIRequest {
+export interface GenericServiceRequest<T> {
   /**
    * Provides information about the current context,
    * that is related to the current conversation between the voice-cms
    * and an end user.
    */
   context: {
-    request?: any;
-    sessionId: string;
+    fovConversationId: string;
     dialogId: string;
+    dialogVersion: string;
+    platform: string;
+    request: object;
   };
 
   /**
@@ -61,7 +58,7 @@ export interface ExternalPlaceholderRequest<T> extends ExternalAPIRequest {
  *
  */
 
-export interface ExternalPlaceholderResponse<TChoice, TOutput>
+export interface GenericServiceResponse<TChoice, TOutput>
   extends ExternalAPIResponse {
   /**
    * A string literal that is mapped by the voice designer to the successor node.
