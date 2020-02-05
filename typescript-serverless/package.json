@@ -7,7 +7,6 @@
     "test": "jest -c jest.config.js",
     "start": "serverless offline start --noAuth",
     "deploy": "serverless deploy",
-    "tunnel": "lt --port 3000 --subdomain skill-service-generator",
     "ngrok": "ngrok http 3000",
     "stream-logs": "serverless logs -f skill-service-generator -t",
     "create-service": "plop service",

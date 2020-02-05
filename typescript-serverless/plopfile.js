@@ -5,24 +5,29 @@ module.exports = function(plop) {
       {
         type: "input",
         name: "name",
-        message: "service name (folder/class/path name):"
+        message: "service name (MyServiceName):"
       }
     ],
     actions: [
       {
         type: "add",
-        path: "src/services/{{name}}/index.ts",
+        path: "src/services/{{camelCase name}}/index.ts",
         templateFile: "plop-templates/service/index.hbs"
       },
       {
         type: "add",
-        path: "src/services/{{name}}/index.test.ts",
+        path: "src/services/{{camelCase name}}/index.test.ts",
         templateFile: "plop-templates/service/index.test.hbs"
       },
       {
         type: "add",
-        path: "src/services/{{name}}/interfaces.ts",
+        path: "src/services/{{camelCase name}}/interfaces.ts",
         templateFile: "plop-templates/service/interfaces.ts"
+      },
+      {
+        type: "add",
+        path: "src/services/{{camelCase name}}/interfaces-generated.ts",
+        templateFile: "plop-templates/service/interfaces-generated.ts"
       },
       {
         type: "append",
@@ -32,9 +37,9 @@ module.exports = function(plop) {
       },
       {
         type: "append",
-        pattern: /import \{ .* \} from \'\.\/.*\/index';/,
+        pattern: /import \{ .* \} from \"\.\/.*\";/,
         path: "src/services/routes.ts",
-        template: "import { {{name}} } from './{{name}}/index';"
+        template: "import { {{name}} } from \"./{{camelCase name}}\";"
       },
       {
         type: "append",
@@ -44,7 +49,7 @@ module.exports = function(plop) {
     handler: handler.entry
     events:
       - http:
-          path: /{{name}}/
+          path: /{{lowerCase name}}/
           method: ANY
           private: true`
       }
