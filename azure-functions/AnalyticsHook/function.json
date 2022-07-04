@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "eventStorage",
+      "databaseName": "ParloaAnalytics",
+      "collectionName": "TransactionLogs",
+      "createIfNotExists": true,
+      "connectionStringSetting": "analytics-store_DOCUMENTDB",
+      "partitionKey": "/user_id",
+      "direction": "out",
+      "type": "cosmosDB"
+    }
+  ]
+}
